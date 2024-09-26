@@ -8,7 +8,7 @@ const FileUpload = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/photos");
+        const response = await axios.get("https://repo-vb52.onrender.com/api/photos");
         setImages(response.data);
       } catch (error) {
         console.error("Error fetching images:", error);
@@ -36,13 +36,13 @@ const FileUpload = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/api/photos/upload", formData, {
+      await axios.post("https://repo-vb52.onrender.com/api/photos/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       // Optionally fetch images again to see the newly uploaded images
-      const response = await axios.get("http://localhost:3000/api/photos");
+      const response = await axios.get("https://repo-vb52.onrender.com/api/photos");
       setImages(response.data);
     } catch (error) {
       console.error("Error uploading files:", error);
